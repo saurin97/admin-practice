@@ -15,7 +15,7 @@ const averageStates = (props : Props) => (
         </div>
         <div className='right-side'>
             <span>Aug-25 to sep-25</span>
-            <ProgressBar now={props.progress} label={`${props.progress}%`} srOnly />
+            <ProgressBar now={props.progress} label={`${props.progress}%`} />
             {props.icon}
         </div>
     </div>
