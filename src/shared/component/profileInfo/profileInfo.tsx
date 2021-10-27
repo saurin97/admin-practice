@@ -2,7 +2,7 @@ import React from 'react';
 import Avatar from './avatar/avatar';
 import PersonalInfo from './personalInfo/personalInfo';
 
-interface PersonalInfo {
+interface PersonalInfoInterface {
     name : string
     role : string
     birthDate : string
@@ -14,7 +14,7 @@ interface PersonalInfo {
 interface Props {
     handleCloseModel : () => void
     handleOpenModel : () => void
-    personalInfo : PersonalInfo
+    personalInfo : PersonalInfoInterface
 }
 
 const profileInfo = (props:Props) => {

@@ -3,7 +3,7 @@ import React,{ Component } from 'react';
 import Question from '../../shared/component/question/question';
 import Result from '../../shared/component/question/result';
 
-export interface Question {
+export interface QuestionInterface {
     id: number,
     name: string,
     options: string[],
@@ -14,8 +14,8 @@ export interface Question {
 
 interface State {
     currentQuestion : number,
-    questions : Question[],
-    displayQuestions : Question[],
+    questions : QuestionInterface[],
+    displayQuestions : QuestionInterface[],
 }
 
 class chat extends Component {
@@ -87,15 +87,18 @@ class chat extends Component {
         return (
             <section className='chat-component'>
                 <div className='container'>
-                    <h4 className='text-capitalize'>Questions & Answers Component</h4>
-                    {
-                        (lastQuestion === this.state.currentQuestion) && <Result questions= {this.state.questions} />
-                    }
-                    {
-                        (lastQuestion !== this.state.currentQuestion) && questionList.map((question:any) => {
-                                return <Question key={question.id} question ={question} checkAnswer= {this.checkAnswer} showResult={this.showResult} lastQuestion = {lastQuestion} />
-                            })
-                    }
+                    <h4 className='text-capitalize'>{`Questions & Answers Component`}</h4>
+                    {lastQuestion === this.state.currentQuestion && <Result questions= {this.state.questions} />}
+
+                    {lastQuestion !== this.state.currentQuestion && 
+                        questionList.map((question:any) => <Question
+                            key={question.id}
+                            question ={question}
+                            checkAnswer= {this.checkAnswer}
+                            showResult={this.showResult}
+                            lastQuestion = {lastQuestion}
+                        />
+                    )}
                 </div>
             </section>
         )
